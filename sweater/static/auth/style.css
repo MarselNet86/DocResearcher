@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('fonts/Segoe UI.ttf') format('opentype');
+}
+
+.nav-link {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  background-color: rgb(12, 67, 140) !important;
+  height: 65px;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+.distance-logo {
+  margin-left: 20px;
+}
+
+
+.form-container {
+  background-color: rgb(225, 232, 248);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 50px auto;
+  width: 443px;
+}
+
+.form-title {
+  color: rgb(12, 67, 140);
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-description {
+  text-align: center;
+}
+
+.submit-button {
+  background-color: rgb(12, 67, 140);
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.email, .password {
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-check-label {
+  font-weight: 100;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  padding: 12px;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.input-field {
+  padding-left: 30px; /* Можно настроить под размер иконки */
+}
+
+.forgot-password a {
+  color: #212529;
+  text-decoration: none;
+}
+
+.no-account {
+  text-align: center;
+  font-weight: 100;
+}
+
+.no-account a {
+  color: #212529;
+  text-decoration: underline;
+}

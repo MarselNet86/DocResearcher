@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocResearcher</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+    {{ font_awesome.load_js() }}
+  <link href="{{ url_for('static', filename='home/style.css') }}" type="text/css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='home/js.js') }}"></script>
+  </link>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand distance-logo" href="/">//DocResearcher x SPK</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse panel" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <div class="d-flex align-items-center nav-link-container">
+              <a class="nav-link distance-link active" aria-current="page" href="#">Главная</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <a class="nav-link distance-link" href="#">Сообщество</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <a class="nav-link distance-link" href="#">Документация</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item distance-reg">
+            <div class="d-flex align-items-center">
+              <a class="nav-link" href="auth" style="margin-right: 10px;">Войти</a>
+              <a href="register" class="btn btn-light btn-logout">
+                <i class="fa-solid fa-bolt" style="margin-left: 5px;"></i> Регистрация
+              </a>  
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="description">
+    <div class="text-container">
+      <p class="intro"><b>&lt;b&gt;DocResearcher — <br>система
+          для</b><br><span>документооборота<br>производственной<br>практики&lt;/b&gt;</span></p>
+      <a href="/user_panel">
+        <button type="button" class="btn btn-primary my-3"><b>Открыть приложение</b></button>
+      </a>
+    </div>
+    <div class="image-container">
+      <img src="static/home/icons/vecteezy.png" alt="Анимированная иконка" width="800" height="550">
+    </div>
+  </div>
+  <div class="parent-container">
+    <div class="rounded-block">
+      <span><b>Как использовать DocResearcher?</b></span>
+    </div>
+    <div class="number-and-text">
+      <div class="rounded-number">
+        <span><b>1</b></span>
+      </div>
+      <div class="border-container">
+        <div class="text-container">
+          <span class="text"><b>Пройдите авторизацию</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="subtext">
+        <p>Чтобы получить доступ к системе, вам нужно будет войти<br> в систему,
+          используя свои учетные данные, <br>
+          которые предоставлены вам администрацией колледжа.</p>
+      </div>
+      <div class="image-container" style="margin-top: -350px; margin-left: 1100px">
+        <img src="static/home/icons/ssg.webp" alt="Анимированная иконка" width="550" height="550">
+      </div>
+
+      <div class="number-and-text" style="margin-left: 900px; margin-top: 50px;">
+        <div class="rounded-number">
+          <span><b>2</b></span>
+        </div>
+        <div class="border-container">
+          <div class="text-container">
+            <span class="text"><b>Панель управления</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="subtext" style="margin-left: 970px;">
+          <p>После авторизации в системе Вам будет доступна панель <br> мониторинга, которая является главной страницей
+            системы. <br> На панели мониторинга будет отображена вся необходимая<br> информация, предназначенная для
+            работы
+            с документами.</p>
+        </div>
+        <div class="image-container" style="margin-top: -350px; margin-left: 100px">
+          <img src="static/home/icons/research.png" alt="Анимированная иконка" width="550" height="550">
+        </div>
+        <div class="number-and-text">
+          <div class="rounded-number">
+            <span><b>3</b></span>
+          </div>
+          <div class="border-container">
+            <div class="text-container">
+              <span class="text"><b>Взаимодействие</b></span>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="subtext">
+            <p>Теперь у Вас есть возможность загружать и отправлять <br>
+              документы,
+              просматривать тематические планы и <br>контролировать процесс прохождения практики!</p>
+          </div>
+          <div class="image-container" style="margin-top: -550px; margin-left: 900px">
+            <img src="static/home/icons/document.png" alt="Анимированная иконка" width="900" height="900">
+          </div>
+          <div class="why-block">
+            <span class="why-text"><b>Почему DocResearcher?</b></span>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6">
+                <div class="card mb-5">
+                  <img src="static/home/icons/nitro.png" alt="">
+                  <div class="card-title">Эффективность</div>
+                  <div class="card-sub">Автоматизация ручных процессов, сокращая время и усилия, необходимые для их
+                    завершения.</div>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6">
+                <div class="card mb-5">
+                  <img src="static/home/icons/easy.png" alt="">
+                  <div class="card-title">Легкость</div>
+                  <div class="card-sub">Интуитивный интерфейс быстро освоить систему и начать использовать ее без
+                    технических навыков.</div>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6">
+                <div class="card mb-5">
+                  <img src="static/home/icons/target.png" alt="">
+                  <div class="card-title">Точность</div>
+                  <div class="card-sub">Система имеет встроенные проверки данных, минимизируя риски потери или искажения
+                    информации.</div>
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6">
+                <div class="card mb-5">
+                  <img src="static/home/icons/security.png" alt="">
+                  <div class="card-title">Безопасность</div>
+                  <div class="card-sub">Все данные защищены и доступ к ним имеют только авторизованные пользователи.
+                  </div>
+                </div>
+              </div>
+              <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+                <div class="container-fluid py-5">
+                  <h1 class="display-5 fw-bold">Остались вопросы?</h1>
+                  <p class="col-md-8 fs-4">Обратитесь к нашей GitBook документации для получения более подробной информации о нашем сайте.</p>
+                  <button class="btn btn-primary btn-lg" type="button">Узнать больше</button>
+                </div>
+              </div>
+              <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Главная</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">VK</a></li>
+                  <li class="nav-item"><a href="https://t.me/marselnet" class="nav-link px-2 text-body-secondary">Telegram</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">GitBook</a></li> 
+                </ul>
+                <p class="text-center text-body-secondary">Made with ❤️ by X-EcoSystem</p>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

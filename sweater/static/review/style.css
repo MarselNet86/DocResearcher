@@ -1,0 +1,118 @@
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/Segoe UI.ttf') format('opentype');
+}
+
+.nav-link {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+    background-color: rgb(12, 67, 140) !important;
+    height: 65px;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.distance-logo,
+.panel {
+    margin-left: 20px;
+    /* Размер отступа кнопок панели */
+}
+
+.distance-reg,
+.distance-link {
+    margin-right: 20px;
+    /* Отступ от кнопки регистрации */
+}
+
+.navbar-nav.ms-auto .nav-item:not(:last-child) {
+    margin-right: 20px;
+    /* Размеры отстута кнопок Войти и Регистрация */
+}
+
+.main-wrapper {
+    display: flex;
+}
+
+.vertical-menu-wrapper {
+    padding: 50px;
+    max-width: 400px;
+    /* Ограничение ширины контейнера */
+}
+
+.vertical-menu {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    white-space: nowrap; /* добавлено для предотвращения переноса текста на следующую строку */
+}
+
+.menu-item {
+    margin-bottom: 8px;
+}
+
+.menu-link {
+    width: 230px;
+    height: 50px;
+    font-size: 20px;
+    color: #0000008A;
+    padding: 10px 7px;
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+
+.menu-link:hover {
+    background-color: #ececec;
+    /* Добавлено для изменения стиля при наведении */
+}
+
+.download-xlsx {
+    margin-top: 18px;
+    margin-left: 10px;
+    width: 230px;
+    height: 180px;
+    background-color: #ececec;
+    border-radius: 20px;
+}
+
+.download-title {
+    font-weight: 500;
+    font-size: 18px;
+    color: #818181;
+    padding: 20px 0px 7px 20px;
+}
+
+.download-description {
+    font-size: 14px;
+    font-weight: 300;
+    color: #818181;
+    padding: 0px 20px;
+}
+
+.download-xlsx-template {
+    padding: 10px 20px 20px;
+}
+
+.btn-stretched {
+    background-color: #0c438c;
+    width: 100%; /* Сделает кнопку шириной во всю доступную область родительского элемента */
+}
+
+.table-wrapper {
+    width: 50%; /* Добавлено, чтобы таблица занимала оставшееся пространство */
+    height: 100%;
+    padding: 50px; /* Добавлено, чтобы таблица не прилипала к краям экрана */
+}
