@@ -16,6 +16,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/community', methods=['GET'])
+def deep():
+    return render_template('community.html')
+
+
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
     if request.method == 'POST':
@@ -25,8 +30,8 @@ def auth():
             user = Users.query.filter_by(email=email).first()
             if user and check_password_hash(user.password, password):
                 # Проверка капчи GeeTest V4
-                captcha_id = '647f5ed2ed8acb4be36784e01556bb71'
-                captcha_key = 'b09a7aafbfd83f73b35a9b530d0337bf'
+                captcha_id = '54cd0af70168ed6991797bf2a431c806'
+                captcha_key = '676df60bd796084e9dd458fcef310579'
                 api_server = 'http://gcaptcha4.geetest.com'
 
                 lot_number = request.form.get('lot_number', '')

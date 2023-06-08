@@ -48,6 +48,11 @@
   width: 100%;
 }
 
+.captcha-button {
+  background-color: rgb(12, 67, 140);
+  color: white;
+}
+
 .email, .password {
   font-family: 'Roboto', sans-serif;
 }
@@ -87,3 +92,12 @@
   color: #212529;
   text-decoration: underline;
 }
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+

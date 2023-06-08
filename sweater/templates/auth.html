@@ -17,124 +17,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     {{ font_awesome.load_js() }}
     <link href="{{ url_for('static', filename='auth/style.css') }}" type="text/css" rel="stylesheet">
+    <script src="{{ url_for('static', filename='auth/js.js') }}"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand distance-logo" href="/">//DocResearcher x SPK</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        </div>
-    </nav>
-    <div class="modal fade" id="captchaModal" tabindex="-1" aria-labelledby="captchaModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="margin-top: 200px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="captchaModalLabel">Подтвердите, что вы не робот</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="captcha"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-container">
-        <h2 class="form-title">Авторизация</h2>
-        <form action="/auth" method="post">
-            <div class="form-group mb-4">
-                <label class="email" for="email">Почта</label>
-                <div class="input-container">
-                    <i class="fa-solid fa-envelope-open input-icon"></i>
-                    <input type="email" class="form-control input-field" style="height: 42px;" id="email"
-                        placeholder="example@mail.ru" name="email" required>
-                </div>
-            </div>
-            <div class="form-group mb-3">
-                <label class="password" for="password">Пароль</label>
-                <div class="input-container">
-                    <i class="fa fa-lock input-icon"></i>
-                    <input type="password" class="form-control input-field" style="height: 42px;" id="password"
-                        name="password" placeholder="Ваш пароль">
-                </div>
-            </div>
-            <div class="form-check mb-2 mx-1">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Запомнить меня
-                </label>
-            </div>
-            <div class="form-group forgot-password mb-2 mx-1">
-                <a href="">Забыли пароль?</a>
-            </div>
-            <input type="hidden" name="lot_number" id="lot_number" value="">
-            <input type="hidden" name="captcha_output" id="captcha_output" value="">
-            <input type="hidden" name="pass_token" id="pass_token" value="">
-            <input type="hidden" name="gen_time" id="gen_time" value="">
-
-            <div id="captcha">
-                <button type="button" class="btn submit-button" data-bs-toggle="modal" data-bs-target="#captchaModal"
-                    id="submit-btn">
-                    Войти
-                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand distance-logo" href="/">//DocResearcher x SPK</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="form-group no-account my-1 mx-1">
-                Нет учетной записи?
-                <a href="">Зарегистрируйтесь сейчас</a>
             </div>
-        </form>
-    </div>
-    <script>
-        var captchaId = "647f5ed2ed8acb4be36784e01556bb71";
-        var product = "float";
-        var gt = null;  // объявляем переменную, которая будет хранить объект капчи
+        </nav>
+    </header>
+    <main>
+        <div class="modal fade" id="captchaModal" tabindex="-1" aria-labelledby="captchaModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="margin-top: 200px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="captchaModalLabel">Подтвердите, что вы не робот</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="captcha"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary captcha-button" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-container">
+            <h2 class="form-title">Авторизация</h2>
+            <form action="/auth" method="post">
+                <div class="form-group mb-4">
+                    <label class="email" for="email">Почта</label>
+                    <div class="input-container">
+                        <i class="fa-solid fa-envelope-open input-icon"></i>
+                        <input type="email" class="form-control input-field" style="height: 42px;" id="email"
+                            placeholder="example@mail.ru" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="password" for="password">Пароль</label>
+                    <div class="input-container">
+                        <i class="fa fa-lock input-icon"></i>
+                        <input type="password" class="form-control input-field" style="height: 42px;" id="password"
+                            name="password" placeholder="Ваш пароль">
+                    </div>
+                </div>
+                <div class="form-group forgot-password mb-2 mx-1">
+                    <a href="">Забыли пароль?</a>
+                </div>
+                <input type="hidden" name="lot_number" id="lot_number" value="">
+                <input type="hidden" name="captcha_output" id="captcha_output" value="">
+                <input type="hidden" name="pass_token" id="pass_token" value="">
+                <input type="hidden" name="gen_time" id="gen_time" value="">
 
-        $('#submit-btn').click(function () {
-            // инициализируем капчу только при открытии модального окна
-            initGeetest4({
-                captchaId: captchaId,
-                product: product,
-            }, function (captchaObj) {
-                gt = captchaObj;
-                gt.appendTo("#captcha");
-
-                gt.onSuccess(function (e) {
-                    var result = gt.getValidate();
-                    $('#lot_number').val(result.lot_number);
-                    $('#captcha_output').val(result.captcha_output);
-                    $('#pass_token').val(result.pass_token);
-                    $('#gen_time').val(result.gen_time);
-
-                    // отправляем форму после успешной проверки капчи
-                    $('form').submit();
-                });
-            });
-        });
-
-        $('#captchaModal').on('hidden.bs.modal', function (e) {
-            if (gt) {
-                gt.destroy();
-            }
-        });
-
-        $('#reset_btn').click(function () {
-            if (gt) {
-                gt.reset();
-            }
-        });
-
-
-
-    </script>
-
+                <div id="captcha">
+                    <button type="button" class="btn btn-primary submit-button" onclick="formCaptcha()" data-bs-toggle="modal"
+                        data-bs-target="#captchaModal" id="submit-btn">
+                        Войти
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </button>
+                </div>                
+                <div class="form-group no-account my-1 mx-1">
+                    Нет учетной записи?
+                    <a href="register">Зарегистрируйтесь сейчас</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="d-flex justify-content-center align-items-center py-3 my-1">
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <span class="text-center mb-3 mb-md-0 text-body-secondary">© 2023 //DocResearcher, Inc</span>
+        </div>
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+            <span class="text-center mb-3 mb-md-0 text-body-secondary">Powered by X-EcoSystem</span>
+        </div>
+    </footer>    
 </body>
 
 </html>

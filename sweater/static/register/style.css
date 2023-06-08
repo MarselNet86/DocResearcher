@@ -68,3 +68,9 @@ label {
   padding-left: 30px; /* Можно настроить под размер иконки */
 }
 
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
