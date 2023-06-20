@@ -11,6 +11,9 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   {{ font_awesome.load_js() }}
   <link href="{{ url_for('static', filename='user_documents/style.css') }}" type="text/css" rel="stylesheet">
   <script src="{{ url_for('static', filename='user_documents/js.js') }}"></script>
@@ -28,17 +31,18 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <div class="d-flex align-items-center nav-link-container">
-              <a class="nav-link distance-link active" aria-current="page" href="#">Главная</a>
+              <a class="nav-link distance-link active" aria-current="page" href="/">Главная</a>
             </div>
           </li>
           <li class="nav-item">
             <div class="d-flex align-items-center">
-              <a class="nav-link distance-link" href="#">Сообщество</a>
+              <a class="nav-link distance-link" href="community">Сообщество</a>
             </div>
           </li>
           <li class="nav-item">
             <div class="d-flex align-items-center">
-              <a class="nav-link distance-link" href="#">Документация</a>
+              <a class="nav-link distance-link" href="https://docresearcher.gitbook.io/docresearcher/"
+              target="_blank">Документация</a>
             </div>
           </li>
         </ul>
@@ -48,7 +52,7 @@
               <span class="nav-link" style="margin-right: 10px;">Привет, {{ first_name }}</span>
               <a href="/logout" class="btn btn-light btn-logout">
                 Выйти <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px;"></i>
-              </a>  
+              </a>
             </div>
           </li>
         </ul>
@@ -71,7 +75,8 @@
         </a>
         <div class="download-xlsx">
           <div class="download-title">Скачать шаблон</div>
-          <div class="download-description">Для начала использования <br>//DocResearcher, необходимо<br> скачать шаблон.</div>
+          <div class="download-description">Для начала использования <br>//DocResearcher, необходимо<br> скачать шаблон.
+          </div>
           <div class="download-xlsx-template">
             <a class="btn btn-primary btn-stretched" href="docs_templates/data_template.xlsx">Скачать</a>
           </div>
@@ -81,34 +86,81 @@
     <div class="table-wrapper">
       <div class="vertical-menu menu-item mb-8">Ваши документы</div>
       <table class="table">
-          <thead>
+        <thead>
           <tr>
-              <th scope="col">Дата и время UTC</th>
-              <th scope="col">№ Файла</th>
-              <th scope="col">Действие</th>
-              <th scope="col">Действие</th>
+            <th scope="col">Тип</th>
+            <th class="colum-sort" scope="col"><a
+                href="?pagesize={{ page_size }}&page=1&sort=request_time&order={{ 'asc' if sort=='request_time' and order=='desc' else 'desc' }}">Дата
+                и время UTC</a></th>
+            <th class="colum-sort" scope="col"><a
+                href="?pagesize={{ page_size }}&page=1&sort=file_id&order={{ 'asc' if sort=='file_id' and order=='desc' else 'desc' }}">№
+                Файла</a></th>
+            <th class="colum-sort" scope="col"><a
+                href="?pagesize={{ page_size }}&page=1&sort=group&order={{ 'asc' if sort=='group' and order=='desc' else 'desc' }}">Группа</a>
+            </th>
+            <th scope="col">Скачивание</th>
+            <th scope="col">Удаление</th>
           </tr>
-          </thead>
-          <tbody id="table-rows">
+        </thead>
+
+        <tbody id="table-rows">
+          {% if files %}
           {% for file in files %}
           <tr>
-              <td>{{ file.request_time }}</td>
-              <td>#{{ file.file_id }}</td>
-              <td>
-                  <a href="{{ url_for('download_file', filename=file.file_id) }}_doc.zip">
-                      <button type="button" class="btn btn-success">Скачать</button>
-                  </a>
-              </td>
-              <td>
-                <a href="{{ url_for('delete_file', filename=file.file_id) }}">
-                  <button type="button" class="btn btn-danger">Удалить</button>
+            <td>Документы ПП</td>
+            <td>{{ file.request_time }}</td>
+            <td>#{{ file.file_id }}</td>
+            <td>{{ file.group }}</td>
+            <td>
+              <a href="{{ url_for('download_file', filename=file.file_id) }}_doc.zip">
+                <button type="button" class="btn btn-success">Скачать</button>
               </a>
-              </td>
+            </td>
+            <td>
+              <a href="{{ url_for('delete_file', filename=file.file_id) }}">
+                <button type="button" class="btn btn-danger">Удалить</button>
+              </a>
+            </td>
           </tr>
           {% endfor %}
-          </tbody>
+          {% else %}
+          <tr>
+            <td colspan="6" style="text-align:center;">Отсутствуют данные</td>
+          </tr>
+          {% endif %}
+        </tbody>
       </table>
+      <span class="files-amount">
+        <span class="font-size-80 font-weight-500">Найдено: {{ files_quantity }}</span>
+      </span>
+      <span class="widget-page-size" style="float: right;">
+        <span class="font-size-80 font-weight-500">Выводить по:</span>
+        <span class="font-size-80 font-weight-500">
+          &nbsp;<a href="?pagesize=10">10</a>&nbsp;
+        </span>
+        <span class="font-size-80 w5-link">
+          &nbsp;<a href="?pagesize=20">20</a>&nbsp;
+        </span>
+        <span class="font-size-80 w5-link">
+          &nbsp;<a href="?pagesize=50">50</a>&nbsp;
+        </span>
+        <span class="font-size-80 w5-link">
+          &nbsp;<a href="?pagesize=100">100</a>&nbsp;
+        </span>
+      </span>
+      <div class="btn-toolbar my-4" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          {% for i in range(1, pages + 1) %}
+          {% if i == current_page %}
+          <button type="button" class="btn btn-primary">{{ i }}</button>
+          {% else %}
+          <a href="?pagesize={{ page_size }}&page={{ i }}" class="btn btn-primary">{{ i }}</a>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </body>
+
 </html>

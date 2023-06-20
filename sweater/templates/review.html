@@ -11,6 +11,9 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   {{ font_awesome.load_js() }}
   <link href="{{ url_for('static', filename='review/style.css') }}" type="text/css" rel="stylesheet">
   <script src="{{ url_for('static', filename='review/js.js') }}"></script>
@@ -28,17 +31,18 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <div class="d-flex align-items-center nav-link-container">
-              <a class="nav-link distance-link active" aria-current="page" href="#">Главная</a>
+              <a class="nav-link distance-link active" aria-current="page" href="/">Главная</a>
             </div>
           </li>
           <li class="nav-item">
             <div class="d-flex align-items-center">
-              <a class="nav-link distance-link" href="#">Сообщество</a>
+              <a class="nav-link distance-link" href="community">Сообщество</a>
             </div>
           </li>
           <li class="nav-item">
             <div class="d-flex align-items-center">
-              <a class="nav-link distance-link" href="#">Документация</a>
+              <a class="nav-link distance-link" href="https://docresearcher.gitbook.io/docresearcher/"
+              target="_blank">Документация</a>
             </div>
           </li>
         </ul>
@@ -48,13 +52,18 @@
               <span class="nav-link" style="margin-right: 10px;">Привет, {{ first_name }}</span>
               <a href="/logout" class="btn btn-light btn-logout">
                 Выйти <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px;"></i>
-              </a>  
+              </a>
             </div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <script>
+
+
+
+  </script>
   <div class="main-wrapper">
     <div class="vertical-menu-wrapper">
       <!-- Меню -->
@@ -71,7 +80,8 @@
         </a>
         <div class="download-xlsx">
           <div class="download-title">Скачать шаблон</div>
-          <div class="download-description">Для начала использования <br>//DocResearcher, необходимо<br> скачать шаблон.</div>
+          <div class="download-description">Для начала использования <br>//DocResearcher, необходимо<br> скачать шаблон.
+          </div>
           <div class="download-xlsx-template">
             <a class="btn btn-primary btn-stretched" href="docs_templates/data_template.xlsx">Скачать</a>
           </div>
@@ -102,7 +112,8 @@
           </tr>
         </tbody>
       </table>
+    </div>
   </div>
-</div>
 </body>
+
 </html>

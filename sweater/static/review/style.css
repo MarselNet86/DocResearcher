@@ -1,14 +1,7 @@
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('fonts/Segoe UI.ttf') format('opentype');
-}
-
-.nav-link {
-    font-family: 'Segoe UI', sans-serif;
-}
-
 .navbar {
     background-color: rgb(12, 67, 140) !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
     height: 65px;
 }
 
@@ -36,6 +29,10 @@
 
 .main-wrapper {
     display: flex;
+}
+
+.container-fluid {
+    background-color: rgb(12, 67, 140) !important;
 }
 
 .vertical-menu-wrapper {
@@ -112,6 +109,7 @@
 }
 
 .table-wrapper {
+    font-family: 'Inter', sans-serif;
     width: 50%; /* Добавлено, чтобы таблица занимала оставшееся пространство */
     height: 100%;
     padding: 50px; /* Добавлено, чтобы таблица не прилипала к краям экрана */

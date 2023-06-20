@@ -1,0 +1,80 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar {
+    background-color: rgb(12, 67, 140) !important;
+    height: 65px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* чтобы navbar был всегда поверх других элементов */
+}
+
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.distance-logo,
+.panel {
+    margin-left: 20px;
+    /* Размер отступа кнопок панели */
+}
+
+.distance-link {
+    margin-right: 20px;
+    /* Отступ от ссылок */
+}
+
+.distance-reg {
+    margin-right: 20px;
+    /* Отступ от кнопки Регистрация */
+}
+
+.container-fluid {
+    background-color: rgb(12, 67, 140) !important;
+}
+
+.navbar-nav.ms-auto .nav-item:not(:last-child) {
+    margin-right: 10px;
+    /* Размеры отстута кнопок Войти и Регистрация */
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    margin-left: 70px;
+    margin-top: 100px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.error-wrapper {
+    font-weight: 600;
+    text-align: center;
+    color: #ff6500;
+    font-size: 200px;
+    margin-top: 60px;
+}
+
+.error-text {
+    text-align: center;
+    font-size: 25px;
+}
+
+.error-text-description {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 60px;
+}
+
+footer {
+    font-weight: 400;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+}

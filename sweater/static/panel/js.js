@@ -76,9 +76,6 @@ function uploadFile(fileInput) {
             contentType: false,
         };
 
-        // Задаем начальное значение времени в секундах (1 минута 30 секунд = 90 секунд)
-        let countdownTime = 90;
-
         let waitingBlock = `
             <div class='done-container'>
                 <div class='done-block'>
@@ -88,47 +85,65 @@ function uploadFile(fileInput) {
                     Осталось: 1м 30с
                 </div>
             </div>
-            `;
+        `;
+
+        $('.documents-block').remove(); // Remove block with class "documents-block"
+        $('.results-load').append(waitingBlock);
+        $('.results-load').children().last().hide().fadeIn(); // Apply fadeIn() animation
+
+        let countdownTime = 90; // Задаем начальное значение времени в секундах
 
         // Каждую секунду выполняем функцию
         let countdownInterval = setInterval(function () {
             countdownTime--; // уменьшаем время на 1 секунду
             let minutes = Math.floor(countdownTime / 60); // получаем количество минут
             let seconds = countdownTime % 60; // получаем количество секунд
-
-            // обновляем текст обратного отсчета
-            document.getElementById('countdown').innerText = "Осталось: " + minutes + "м " + seconds + "с";
-
-            // когда время закончилось, останавливаем интервал
+        
+            // проверяем, если время закончилось, обновляем текст на "Ожидайте..."
             if (countdownTime <= 0) {
+                document.getElementById('countdown').innerText = "Ожидайте...";
                 clearInterval(countdownInterval);
+            } else {
+                // обновляем текст обратного отсчета
+                document.getElementById('countdown').innerText = "Осталось: " + minutes + "м " + seconds + "с";
             }
         }, 1000);
-
-
-        // Append waitingBlock to results-load element
-        $('.documents-block').remove(); // Remove block with class "documents-block"
-        $('.results-load').append(waitingBlock);
-        $('.results-load').children().last().hide().fadeIn(); // Apply fadeIn() animation
+        
 
         $.ajax(settings).done(function (response) {
             // Remove waitingBlock
             $('.waiting-block').parent().remove();
 
-            let downloadBlock = `
+        
+            if (response.status === 'error') {
+                console.log(response.error)
+                let errorBlock = `
+                    <div class='done-container'>
+                        <div class='done-block'>
+                            <span class="done-text">${file.name}</span>
+                        </div>
+                        <div class='error-block'>
+                            Ошибка
+                        </div>
+                    </div>
+                `;
+        
+                $('.results-load').append(errorBlock);
+            } else {
+                let downloadBlock = `
                 <div class='done-container'>
                     <div class='done-block'>
-                        ${file.name}
+                    ${file.name}
                     </div>
                     <a class='btn-download' href="/download/${response.zip_filename}_doc.zip">
                         <i class="fa-solid fa-arrow-down-long fa-bounce" style="color: #a0c157;"></i>Скачать
                     </a>
                 </div>
-            `;
-
-            $('.results-load').append(downloadBlock);
+                `;
+        
+                $('.results-load').append(downloadBlock);
+            }
         });
-
     } else {
         console.log('Файл не выбран');
     }

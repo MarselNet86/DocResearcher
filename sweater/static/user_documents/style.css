@@ -1,14 +1,7 @@
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('fonts/Segoe UI.ttf') format('opentype');
-}
-
-.nav-link {
-    font-family: 'Segoe UI', sans-serif;
-}
-
 .navbar {
     background-color: rgb(12, 67, 140) !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
     height: 65px;
 }
 
@@ -38,6 +31,10 @@
     display: flex;
 }
 
+.container-fluid {
+    background-color: rgb(12, 67, 140) !important;
+}
+
 .vertical-menu-wrapper {
     padding: 50px;
     max-width: 400px;
@@ -51,7 +48,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    white-space: nowrap; /* добавлено для предотвращения переноса текста на следующую строку */
+    white-space: nowrap;
+    /* добавлено для предотвращения переноса текста на следующую строку */
 }
 
 .menu-item {
@@ -108,13 +106,26 @@
 
 .btn-stretched {
     background-color: #0c438c;
-    width: 100%; /* Сделает кнопку шириной во всю доступную область родительского элемента */
+    width: 100%;
+    /* Сделает кнопку шириной во всю доступную область родительского элемента */
 }
 
 
 
 .table-wrapper {
-    width: 100%; /* Добавлено, чтобы таблица занимала оставшееся пространство */
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    /* Добавлено, чтобы таблица занимала оставшееся пространство */
     height: 100%;
-    padding: 50px; /* Добавлено, чтобы таблица не прилипала к краям экрана */
+    padding: 50px;
+    /* Добавлено, чтобы таблица не прилипала к краям экрана */
+}
+
+.widget-page-size a {
+    text-decoration: none;
+}
+
+.colum-sort a {
+    text-decoration: underline;
+    color: inherit;
 }

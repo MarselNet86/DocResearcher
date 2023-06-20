@@ -1,20 +1,33 @@
-@font-face {
-    font-family: 'Segoe UI';
-    src: url('fonts/Segoe UI.ttf') format('opentype');
-}
-
-.nav-link {
-    font-family: 'Segoe UI', sans-serif;
-}
-
 .navbar {
     background-color: rgb(12, 67, 140) !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
     height: 65px;
 }
 
 .navbar-brand,
 .navbar-nav .nav-link {
     color: white !important;
+}
+
+.distance-logo,
+.panel {
+    margin-left: 20px;
+    /* Размер отступа кнопок панели */
+}
+
+.distance-link {
+    margin-right: 20px;
+    /* Отступ от ссылок */
+}
+
+.distance-reg {
+    margin-right: 20px;
+    /* Отступ от кнопки Регистрация */
+}
+
+.container-fluid {
+    background-color: rgb(12, 67, 140) !important;
 }
 
 .grid-container {
@@ -28,12 +41,18 @@
 .grid-item {
     background-color: #f5f5f5;
     border: 1px solid #f5f5f5;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Параметры тени */
     border-radius: 12px;
     padding: 20px;
     font-size: 30px;
     width: 330px;
     height: 304px;
     margin: 10px;
+    text-decoration: none;
+    /* Убирает подчеркивание */
+    color: inherit;
+    /* Ссылка будет того же цвета, что и окружающий текст */
+    transition: background-color 0.3s;
 }
 
 .grid-item img {
@@ -47,9 +66,25 @@
 
 .grid-item p {
     font-size: 16px;
+    font-family: 'Inter', sans-serif;
 }
 
 .grid-item a {
     display: block;
     margin: 10px 0;
+    text-decoration: none;
+    /* Убирает подчеркивание */
+    color: inherit;
+    /* Ссылка будет того же цвета, что и окружающий текст */
+}
+
+.grid-item:hover {
+    background-color: #e7e7e7;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

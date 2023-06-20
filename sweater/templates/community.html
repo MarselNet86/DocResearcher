@@ -11,70 +11,134 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
     {{ font_awesome.load_js() }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.14"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="{{ url_for('static', filename='community/style.css') }}" type="text/css" rel="stylesheet">
-  <!-- <script src="{{ url_for('static', filename='home/js.js') }}"></script> -->
+  <script src="{{ url_for('static', filename='community/js.js') }}"></script>
   </link>
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand distance-logo" href="/">//DocResearcher x SPK</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse panel" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <div class="d-flex align-items-center nav-link-container">
-                <a class="nav-link distance-link active" aria-current="page" href="#">Главная</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="d-flex align-items-center">
-                <a class="nav-link distance-link" href="#">Сообщество</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <div class="d-flex align-items-center">
-                <a class="nav-link distance-link" href="#">Документация</a>
-              </div>
-            </li>
-          </ul>
-        </div>
+  {% if user.is_authenticated %}
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand distance-logo" href="/">//DocResearcher x SPK</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse panel" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <div class="d-flex align-items-center nav-link-container">
+              <a class="nav-link distance-link active" aria-current="page" href="/" data-link="/">Главная</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <a class="nav-link distance-link" href="community" data-link="/community">Сообщество</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <a class="nav-link distance-link" href="https://docresearcher.gitbook.io/docresearcher/"
+              target="_blank">Документация</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item distance-reg">
+            <div class="d-flex align-items-center">
+              <a href="/panel" class="btn btn-light btn-logout">
+                {{ email }} <i class="fa-solid fa-arrow-right-from-bracket" style="margin-left: 5px;"></i>
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+  {% else %}
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand distance-logo" href="/">//DocResearcher x SPK</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse panel" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <div class="d-flex align-items-center nav-link-container">
+              <a class="nav-link distance-link active" aria-current="page" href="/" data-link="/">Главная</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <a class="nav-link distance-link" href="community" data-link="/community">Сообщество</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex align-items-center">
+              <a class="nav-link distance-link" href="https://docresearcher.gitbook.io/docresearcher/"
+                target="_blank">Документация</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item distance-reg">
+            <div class="d-flex align-items-center">
+              <a class="nav-link" href="login" style="margin-right: 10px;">Войти</a>
+              <a href="register" class="btn btn-light btn-logout">
+                <i class="fa-solid fa-bolt" style="margin-left: 5px;"></i> Регистрация
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% endif %}
   <main>
-    <h1 class="mb-4 text-center">Ecosystem</h1>
+    <h1 class="my-4 mb-4 text-center">Сообщество</h1>
     <div class="grid-container">
-      <div class="grid-item">
-          <img src="static/community/icons/youtube.png" alt="image1">
+      <a href="https://www.youtube.com/@flatingo_rezerv" target="_blank" class="grid-item">
+          <img src="{{ url_for('static', filename='community/icons/youtube.png') }}" alt="image1">
           <h2 class="mb-2">YouTube</h2>
-          <p href="#">@flatingo_rezerv</p>
-          <p>Описание медиа ресурса 1</p>
-      </div>
-      <div class="grid-item">
-          <img src="static/community/icons/vk.png" alt="image2">
+          <p>@experience_prod</p>
+          <p>Обзоры и описание функционала //DocResearcher</p>
+      </a>
+      <a href="https://vk.com/marselnet" target="_blank" class="grid-item">
+          <img src="{{ url_for('static', filename='community/icons/vk.png') }}" alt="image2">
           <h2 class="mb-2">Вконтакте</h2>
-          <p href="#">@marselnet</p>
-          <p>Описание медиа ресурса 2</p>
-      </div>
-      <div class="grid-item">
-          <img src="static/community/icons/telegram8.png" alt="image3">
+          <p>@marselnet</p>
+          <p>Для сотрудничества, рекламы, а также предложений.</p>
+      </a>
+      <a href="https://t.me/marselnet" target="_blank" class="grid-item">
+          <img src="{{ url_for('static', filename='community/icons/telegram.png') }}" alt="image3">
           <h2 class="mb-2">Telegram</h2>
-          <p href="#">@marselnet</p>
-          <p>Описание медиа ресурса 3</p>
-      </div>
-      <div class="grid-item">
-          <img src="static/community/icons/github.png" alt="image4">
+          <p>@exp_studio</p>
+          <p>Новостной канал проекта //DocResearcher</p>
+      </a>
+      <a href="https://github.com/marselnet86" target="_blank" class="grid-item">
+          <img src="{{ url_for('static', filename='community/icons/github.png') }}" alt="image4">
           <h2 class="mb-2">GitHub</h2>
-          <p href="#">@MarselNet86</p>
-          <p>Описание медиа ресурса 4</p>
-      </div>
+          <p>@MarselNet86</p>
+          <p>Репозиторий проекта, в котором хранится исходный код</p>
+      </a>
   </div>
   </main>
+  <footer class="d-flex justify-content-center align-items-center py-3 my-1">
+    <div class="col-md-2 d-flex justify-content-center align-items-center">
+      <span class="text-center mb-3 mb-md-0 text-body-secondary">© 2023 //DocResearcher, Inc</span>
+    </div>
+    <div class="col-md-2 d-flex justify-content-center align-items-center">
+      <span class="text-center mb-3 mb-md-0 text-body-secondary">Powered by X-EcoSystem</span>
+    </div>
+  </footer>
   
 </body>
 </html>

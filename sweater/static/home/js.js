@@ -1,10 +1,11 @@
-const goTopBtn = document.querySelector(".go-top");
-
-const goTop = () => {
-    if (window.scrollY > 0) {
-        window.scrollBy(0, -75);
-        setTimeout(goTop, 0);
-    }
-}
-
-goTopBtn.addEventListener("click", goTop);
+$(document).ready(function(){
+    $('a[data-link]').click(function(e){
+      e.preventDefault();
+      $.get($(this).attr('href'), function(response){
+        setTimeout(function() {
+          $('body').html(response);
+        }, 200);  // задержка в 200 миллисекунд
+      });
+    });
+  });
+  

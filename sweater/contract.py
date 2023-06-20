@@ -4,8 +4,32 @@ from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 import time
 
 
-def practice_completion(practice_period, organization, director, specialization, phone_number, fax_number, site, inn, kpp, orgn, description, stock_full_name, type_of_practice, address):
+def practice_completion(row):
     doc = Document('docs_templates/contract_template.docx')
+
+    practice_period = row[6]
+    organization = row[7]
+    director = row[8]
+    specialization = row[3]
+    phone_number = row[10]
+    fax_number = row[11]
+    site = row[13]
+    inn = row[14]
+    kpp = row[15]
+    orgn = row[16]
+    description = """
+    ______________________________________
+    ______________________________________
+    ______________________________________
+
+    Генеральный директор
+
+    _______________Е.В.  Дьячков                                            
+    """
+    stock_full_name = row[1]
+    type_of_practice = row[5]
+    address = row[9]
+
     par_0 = doc.paragraphs[1]
     run_0 = par_0.add_run('4')
     run_0.bold = True
